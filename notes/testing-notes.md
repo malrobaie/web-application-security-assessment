@@ -65,19 +65,24 @@ Reflected XSS confirmed due to lack of input sanitization and output encoding
 
 ---
 
-## Access Control Testing (In Progress)
+## Access Control Testing
 
-**Method:**
-Modified API resource identifiers using Burp Suite Repeater
+**Method:**  
+Modified API resource identifiers using Burp Suite Repeater  
 
-**Example Target:**
-GET /rest/basket/{id}
+**Endpoint:**  
+GET /rest/basket/{id}  
 
-**Observation:**
-Testing focused on accessing resources outside assigned user context
+**Test Cases:**
+- /6 → valid data  
+- /1 → different user data  
+- /999 → null  
 
-**Conclusion:**
-Further validation required to confirm unauthorized data access behavior
+**Result:**  
+Application returned data for different identifiers without authorization validation  
+
+**Conclusion:**  
+Confirmed IDOR vulnerability due to lack of server-side access control checks
 
 ---
 
