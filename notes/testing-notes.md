@@ -39,10 +39,10 @@ Intercepted login request using Burp Suite and modified input parameters
 ```
 
 **Result:**
-Request successfully modified and forwarded to server
+Request successfully modified and forwarded to the server. The application accepted user-controlled input without immediate rejection.
 
 **Conclusion:**
-Authentication input fields are directly controllable and susceptible to injection testing. Further validation would determine exploitability in a production system.
+Authentication input fields are directly controllable and represent a potential injection attack surface. Further testing would be required to confirm exploitability in a production system.
 
 ---
 
@@ -58,52 +58,55 @@ Search functionality
 ```
 
 **Result:**
-JavaScript executed successfully in browser (alert triggered)
+JavaScript executed successfully in the browser (alert triggered)
 
 **Conclusion:**
-Reflected XSS confirmed due to lack of input sanitization and output encoding
+Reflected XSS vulnerability confirmed due to lack of input sanitization and output encoding
 
 ---
 
 ## Access Control Testing
 
-**Method:**  
-Modified API resource identifiers using Burp Suite Repeater  
+**Method:**
+Modified API resource identifiers using Burp Suite Repeater
 
-**Endpoint:**  
-GET /rest/basket/{id}  
+**Endpoint:**
+GET /rest/basket/{id}
 
 **Test Cases:**
-- /6 → valid data  
-- /1 → different user data  
-- /999 → null  
 
-**Result:**  
-Application returned data for different identifiers without authorization validation  
+* /6 → valid data
+* /1 → different user data
+* /999 → null
 
-**Conclusion:**  
-Confirmed IDOR vulnerability due to lack of server-side access control checks
-
----
-
-## Sensitive Data Review (In Progress)
-
-**Areas Reviewed:**
-
-* Local storage
-* Session storage
-* Cookies
-* API responses
-
-**Observation:**
-Evaluating presence of sensitive data such as tokens, user information, or system metadata
+**Result:**
+Application returned data for different identifiers without enforcing authorization checks
 
 **Conclusion:**
-Pending validation of exposure risk
+Confirmed IDOR vulnerability due to lack of server-side access control validation
 
 ---
 
-## DAST Scan (Planned)
+## Sensitive Data Review
+
+**Areas Checked:**
+Local storage, session storage, cookies
+
+**Method:**
+Inspected browser storage using developer tools
+
+**Findings:**
+
+* JWT authentication token stored in Local Storage
+* Basket identifier (`bid`) stored in Session Storage
+* Authentication token also present in Cookies
+
+**Conclusion:**
+Sensitive authentication data is accessible via client-side storage, increasing risk of token exposure, especially in the presence of client-side vulnerabilities such as XSS
+
+---
+
+## DAST Scan
 
 **Tool:**
 OWASP ZAP
@@ -112,4 +115,4 @@ OWASP ZAP
 Identify additional vulnerabilities and validate manual findings
 
 **Status:**
-Pending execution
+Automated scanning performed to supplement manual testing and identify additional risk areas
