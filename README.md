@@ -47,7 +47,7 @@ The assessment focused on:
 1. Deployed OWASP Juice Shop locally using Docker.
 2. Explored application functionality and user workflows.
 3. Used Burp Suite to intercept and analyze HTTP requests.
-4. Used OWASP ZAP for automated DAST-style scanning.
+4. Used OWASP ZAP to perform automated DAST scanning, identifying multiple medium and low severity vulnerabilities and validating manual findings.
 5. Manually tested for common vulnerabilities such as SQL Injection, XSS, broken access control, and sensitive data exposure.
 6. Documented findings with severity, evidence, impact, and remediation guidance.
 7. Added AI/LLM security considerations based on modern application risk patterns.
@@ -74,8 +74,12 @@ web-application-security-assessment/
 │   ├── 03-login-request-intercepted.png
 │   ├── 04-sql-injection-result.png
 │   ├── 05-xss-payload-result.png
-│   ├── 06-access-control-test.png
-│   ├── 07-sensitive-data-review.png
+│   ├── 06-access-control-original.png
+│   ├── 06-access-control-modified.png
+│   ├── 06-access-control-invalid.png
+│   ├── 07-local-storage.png
+│   ├── 07-session-storage.png
+│   ├── 07-cookies.png
 │   └── 08-zap-scan-results.png
 └── notes/
     └── testing-notes.md
