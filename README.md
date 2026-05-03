@@ -72,6 +72,8 @@ web-application-security-assessment/
 └── notes/
     └── testing-notes.md
 
+```
+
 ## Disclaimer
 
 This assessment was performed only against a locally hosted intentionally vulnerable application. No unauthorized systems, networks, or third-party applications were tested.
