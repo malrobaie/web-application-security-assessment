@@ -1,5 +1,9 @@
 # Web Application Security Assessment
 
+👉 **[View Full Vulnerability Report](report/vulnerability-assessment-report.md)**
+
+---
+
 ## Overview
 
 This project documents a structured application security assessment of a locally hosted vulnerable web application using OWASP Top 10 methodology, manual testing, and dynamic application security testing tools.
