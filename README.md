@@ -6,6 +6,14 @@ This project documents a structured application security assessment of a locally
 
 The goal of this project is to simulate the work of an Application Security Engineer by identifying vulnerabilities, documenting technical evidence, assessing business impact, and recommending secure remediation strategies.
 
+
+Key skills demonstrated:
+- Manual security testing (Burp Suite)
+- API and access control analysis
+- XSS and injection testing
+- Secure data handling analysis
+- Vulnerability reporting and remediation
+
 ## Target Application
 
 **Application:** OWASP Juice Shop  
